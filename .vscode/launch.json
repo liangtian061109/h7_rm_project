@@ -1,0 +1,40 @@
+{
+    // 由 dap.ps1 自动生成 —— 按 F5 即可编译并进入调试
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "DAPLink 调试 (OpenOCD)",
+            "type": "cortex-debug",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "executable": "${workspaceFolder}/build/Debug/rm_project.elf",
+            "servertype": "openocd",
+            "configFiles": [
+                "${workspaceFolder}/openocd_dap.cfg"
+            ],
+            "gdbPath": "C:/Users/30710/AppData/Local/stm32cube/bundles/gnu-gdb-for-stm32/14.3.1+st.2/bin/arm-none-eabi-gdb.exe",
+            "svdFile": "D:/stm32halproject/tools/svd/STM32H723.svd",
+            "runToEntryPoint": "main",
+            "preLaunchTask": "build",
+            "showDevDebugOutput": "none",
+            "liveWatch": {
+                "enabled": true,
+                "samplesPerSecond": 4
+            }
+        },
+        {
+            "name": "DAPLink 附加 (attach)",
+            "type": "cortex-debug",
+            "request": "attach",
+            "cwd": "${workspaceFolder}",
+            "executable": "${workspaceFolder}/build/Debug/rm_project.elf",
+            "servertype": "openocd",
+            "configFiles": [
+                "${workspaceFolder}/openocd_dap.cfg"
+            ],
+            "gdbPath": "C:/Users/30710/AppData/Local/stm32cube/bundles/gnu-gdb-for-stm32/14.3.1+st.2/bin/arm-none-eabi-gdb.exe",
+            "svdFile": "D:/stm32halproject/tools/svd/STM32H723.svd",
+            "showDevDebugOutput": "none"
+        }
+    ]
+}

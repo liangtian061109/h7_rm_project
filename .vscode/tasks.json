@@ -1,0 +1,35 @@
+{
+    // 由 dap.ps1 自动生成
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "powershell",
+            "args": [ "-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "D:/stm32halproject/tools/dap.ps1", "build" ],
+            "group": { "kind": "build", "isDefault": true },
+            "problemMatcher": []
+        },
+        {
+            "label": "dap: 编译并烧录",
+            "type": "shell",
+            "command": "powershell",
+            "args": [ "-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "D:/stm32halproject/tools/dap.ps1", "flash" ],
+            "problemMatcher": []
+        },
+        {
+            "label": "dap: 仅烧录",
+            "type": "shell",
+            "command": "powershell",
+            "args": [ "-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "D:/stm32halproject/tools/dap.ps1", "flash", "-NoBuild" ],
+            "problemMatcher": []
+        },
+        {
+            "label": "dap: 全片擦除",
+            "type": "shell",
+            "command": "powershell",
+            "args": [ "-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "D:/stm32halproject/tools/dap.ps1", "erase" ],
+            "problemMatcher": []
+        }
+    ]
+}
