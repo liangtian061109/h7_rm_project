@@ -13,8 +13,6 @@
 /* CAN 功能开关：0 = 临时跳过，调其他功能时避免 CAN 故障拖累整个 APP */
 #define APP_CAN_ENABLE 1
 
-/* USB Host 开关：接 Xbox 手柄用。0 = 不初始化，省 3KB FLASH */
-#define APP_USB_HOST_ENABLE 1
 
 typedef enum {
   APP_NOT_INITIALIZED = 0, /* 还没跑 App_Init_Devices() */

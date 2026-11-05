@@ -4,7 +4,6 @@
 #include "fdcan.h"
 #include "main.h"
 #include "spi.h"
-#include "usb_host.h"
 
 /* 把 CubeMX 配好的外设变成"能用的设备"：IMU 和 CAN。
  * 全部跑在调度器启动之前，所以可以放心用 HAL_Delay 和忙等。 */
@@ -89,11 +88,6 @@ bool App_Init_Devices(void) {
   }
 #else
   (void)App_Init_CAN; /* 开关关掉时引用一下，避免 -Wunused-function */
-#endif
-
-#if APP_USB_HOST_ENABLE
-  /* USB Host 必须在调度器启动前初始化：内部枚举会用 HAL_Delay 等设备稳定 */
-  Usb_Host_Init();
 #endif
 
   g_app_status = APP_DEVICES_READY;

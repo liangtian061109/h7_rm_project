@@ -8,7 +8,6 @@
 #include "app_init.h"
 #include "bmi088_task.h"
 #include "c620_task.h"
-#include "rc_task.h"
 
 /* 所有任务的栈、优先级、句柄集中在这张表里，一眼看全系统资源分配。
  * 任务函数本身在各自模块里，这里只管"按什么参数把它跑起来"。
@@ -28,10 +27,6 @@ static const Task_Config_s task_table[] = {
     {BMI088_Task, "bmi088", 512, 54, &g_bmi088_task_handle},
 #if APP_CAN_ENABLE
     {C620_Task, "c620", 384, 50, &g_c620_task_handle},
-#endif
-#if APP_USB_HOST_ENABLE
-    /* 优先级低于控制任务：USB 枚举时会 vTaskDelay，不能挡住电机控制 */
-    {RC_Task, "rc", 512, 30, &g_rc_task_handle},
 #endif
 };
 

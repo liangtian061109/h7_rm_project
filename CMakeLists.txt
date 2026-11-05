@@ -56,12 +56,6 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
 include(${CMAKE_SOURCE_DIR}/cmake/AutoSources.cmake)
 auto_add_sources(${CMAKE_PROJECT_NAME} APP BSP modules)
 
-# -----------------------------------------------------------------------------
-# USB Host Library 的编译单元在 Middlewares 下，拿不到上面 auto_add_sources
-# 加的 BSP 头文件路径，而 usbh_core.h 要 include "usbh_conf.h"。
-# 这里手动把 BSP/usb 补进 stm32cubemx 的接口 include。
-# -----------------------------------------------------------------------------
-target_include_directories(stm32cubemx INTERFACE ${CMAKE_SOURCE_DIR}/BSP/usb)
 
 # -----------------------------------------------------------------------------
 # 用工程自有链接脚本替换 CubeMX 生成脚本（插件）：
